@@ -124,4 +124,48 @@ else:
     
     
     ########################################################
+# check if a number is positive or negative
+
+
+number = int(input("Enter a number: "))
+
+isBig=True if number>=0 else False
+
+if isBig:
+    print("The number is positive")
+else:
+    print("The number is negative")
+
 """
+
+name=input("Enter your name: ")
+
+#shows lenght of text
+#lenght_of_name=len(name)
+
+
+#finds first letter in text
+#find_position_of_first_letter=name.find("a")
+#finds last letter in text
+#find_position_of_last_letter=name.rfind("a")
+
+# first letter is uppercase
+#name=name.capitalize()
+
+# all is uppercase
+#name=name.upper()
+
+
+
+# returns True if all characters in the string are digits (0-9), False otherwise
+# result=name.isdigit()
+
+# isalpha() returns True if all characters in the string are letters (a-z, A-Z), False otherwise
+#name=name.isalpha()
+
+# title() converts the first character of every word to uppercase and the rest to lowercase
+#name=name.title()
+
+# counts that char
+#result=name.count(" ")
+#print(result)
