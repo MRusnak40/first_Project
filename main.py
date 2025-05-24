@@ -1,3 +1,4 @@
+import random
 from itertools import filterfalse
 from xmlrpc.client import boolean
 
@@ -136,8 +137,10 @@ if isBig:
 else:
     print("The number is negative")
 
-"""
+######################################################
 
+
+#checking name 
 name=input("Enter your name: ")
 
 #shows lenght of text
@@ -169,3 +172,42 @@ name=input("Enter your name: ")
 # counts that char
 #result=name.count(" ")
 #print(result)
+
+
+###############################
+
+credit_number="1850-855-54452-4554"
+
+print(credit_number[0:4])
+print(credit_number[4:])
+
+####################
+# price formating
+
+price1 = 3.21849
+price2 = -5447.25
+price3 = 12.36
+
+print(f"price is {price1:.2f}")
+print(f"price is {price2:2f} ")
+print(f"price is {price3:.2f}")
+
+"""
+
+import random
+
+foods = [input("Enter your favorite food: ") for i in range(3)]
+prices = [random.randint(50, 100) for i in range(3)]
+total_price = 0
+
+list_of_products = []
+
+
+for food, price in zip(foods, prices):
+    print(f"You like {food} and it costs {price}")
+    products_dict = {"food": food, "price": price}
+    total_price += price
+    list_of_products.append(products_dict)
+
+print(list_of_products)
+print(total_price)
