@@ -1,5 +1,7 @@
 import random
+import time
 from itertools import filterfalse
+from operator import index
 from xmlrpc.client import boolean
 
 """
@@ -192,7 +194,8 @@ print(f"price is {price1:.2f}")
 print(f"price is {price2:2f} ")
 print(f"price is {price3:.2f}")
 
-"""
+####################################################
+#FOOD  and list of prices
 
 import random
 
@@ -211,3 +214,45 @@ for food, price in zip(foods, prices):
 
 print(list_of_products)
 print(total_price)
+
+
+###############################################################
+
+list_of_shoppers= []
+
+for x in range(2):
+    name=input("Enter your name: ")
+    card=input("Enter your credit card number: ")
+
+
+    shopper={"name":name , "card":card}
+    list_of_shoppers.append(shopper)
+
+
+
+for shopper in list_of_shoppers:
+
+    print(str(list_of_shoppers.index(shopper)+1)+f". name: {shopper['name']}"+" "+f" credit card: {shopper['card']}")
+
+    time.sleep(1.5)
+"""
+
+qestions=("What is your name?",
+          "What is your age?",
+          "What is your favorite food?")
+
+
+options=(("Matyas","Karel","Pepa"),
+         ("18","19","20"),
+         ("Pizza","Burger","Spaghetti"))
+
+
+answers=("Matyas",
+         "18",
+         "Pizza")
+
+guess=[]
+
+
+
+
