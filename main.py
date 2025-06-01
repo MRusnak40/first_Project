@@ -1,5 +1,6 @@
 import random
 import time
+from importlib.util import source_hash
 from itertools import filterfalse
 from operator import index
 from xmlrpc.client import boolean
@@ -235,7 +236,9 @@ for shopper in list_of_shoppers:
     print(str(list_of_shoppers.index(shopper)+1)+f". name: {shopper['name']}"+" "+f" credit card: {shopper['card']}")
 
     time.sleep(1.5)
-"""
+    #########################################################
+#quiz
+
 
 qestions=("What is your name?",
           "What is your age?",
@@ -252,6 +255,46 @@ answers=("Matyas",
          "Pizza")
 
 guess=[]
+score=0
+question_number=0
+
+for qestion in qestions:
+
+    print(qestion)
+
+    print(f"Choose one of the following:{options[question_number]}")
+    answer=input("Enter your answer: ")
+
+    guess.append(answer)
+    question_number+=1
+
+question_number=0
+for guessis in guess:
+
+    if guessis==answers[question_number]:
+        score+=1
+
+    question_number+=1
+
+
+
+if score==3:
+    print("You win!")
+elif score==2:
+    print("You got one more chance!")
+else:
+    print("You lost!")
+    print(f"The correct answers were: {answers}")
+    print(f"Your answers were: {guess}")
+    print(f"Your score was: {score}")
+    
+"""
+
+
+
+
+
+
 
 
 
