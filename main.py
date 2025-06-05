@@ -289,13 +289,59 @@ else:
     print(f"Your score was: {score}")
     
 """
+found_mines = 0
+points = 0
+while found_mines < 4:
+    mines = 0
+
+    mine_hidden = [
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0]]
+
+    while mines < 4:
+        print(f"Add mines on map and let your friend find it: {mines}")
+        print("mine 1 /no mine 0")
+        print(mine_hidden)
+        for row in range(len(mine_hidden)):
+            for col in range(len(mine_hidden[row])):
+
+                print(f"position {row}  seznam {col}")
 
 
+                mine_hidden[row][col] = int(input("Enter your answer: "))
 
+                print(" ")
+                print(mine_hidden)
 
+        for row in mine_hidden:
+            for col in row:
+                if col == 1:
+                    mines += 1
 
+    print(" ")
+    print(" ")
+    print(" ")
+    print("lets play")
+    time.sleep(2)
+    print(" ")
+    print(" ")
 
+    while mines > 0:
+        print(f"You have {mines} mines left in the map.")
+        x = int(input("position X "))
+        y = int(input("position Y "))
 
+        if mine_hidden[x][y] == 1:
+            print("Died")
+            print(" ")
+            break
 
+        elif mine_hidden[x][y] == 2:
+            points += 1
+            mines -= 1
+            found_mines += 1
+        print("DIDNT STEP ON ONE")
 
 
