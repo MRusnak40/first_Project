@@ -288,7 +288,10 @@ else:
     print(f"Your answers were: {guess}")
     print(f"Your score was: {score}")
     
-"""
+
+
+################################################################
+#Founding mines
 found_mines = 0
 points = 0
 while found_mines < 4:
@@ -344,4 +347,59 @@ while found_mines < 4:
             found_mines += 1
         print("DIDNT STEP ON ONE")
 
+"""
+list_of_shoppers = {}
 
+while len(list_of_shoppers) < 1:
+    name = input("Enter your name: ")
+
+    while len(name) > 12:
+        print("Too long")
+        name = input("Enter your name: ")
+
+    card = input("Enter your credit card number: ")
+
+    while card.isdigit() is False:
+        print("Enter a valid credit card number")
+        card = input("Enter your credit card number: ")
+
+    status = None
+    while status is None:
+        print("offline/online")
+        status = input("Enter your status: ")
+
+        if status == "offline" or status == "online":
+            status = status
+        else:
+            print("Enter a valid status")
+            status = None
+
+    payments={}
+    shopper = {"name": name, "card": card, "status": status,"payments":payments}
+
+    list_of_shoppers.update({name: shopper})
+    print(f"shopper was added: {shopper}")
+
+print("----------------------------------")
+print(" ")
+print(" ")
+print("List of shoppers:")
+
+for item in list_of_shoppers.items():
+    print(item,end="\n")
+    print(" ")
+
+
+running = True
+shopping_list={"Apple":25,
+               "Android":70,
+               "Nokia":2,
+               "Huaway":30}
+card =[]
+total_price = 0
+
+while running:
+    print("------Shop-----")
+    for key, value in shopping_list.items():
+        print(f"{key}: ${value:.2f}",end="\n")
+    print("----------")
