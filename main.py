@@ -395,11 +395,27 @@ shopping_list={"Apple":25,
                "Android":70,
                "Nokia":2,
                "Huaway":30}
-card =[]
+list =[]
 total_price = 0
 
 while running:
     print("------Shop-----")
     for key, value in shopping_list.items():
-        print(f"{key}: ${value:.2f}",end="\n")
+        print(f"{key:5}: ${value:.2f}",end="\n")
     print("----------")
+
+    electrotechnics=input("Enter your electrotechnics: ").capitalize()
+    if electrotechnics == "q":
+        running = False
+        break
+    elif electrotechnics  in shopping_list.keys():
+
+        print(f"The shopper is {shopping_list[electrotechnics]}")
+        list.append(shopping_list[electrotechnics])
+    else:
+        print("NONE existing in list")
+        continue
+
+
+
+
