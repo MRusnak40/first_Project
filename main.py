@@ -374,8 +374,8 @@ while len(list_of_shoppers) < 1:
             print("Enter a valid status")
             status = None
 
-    payments={}
-    shopper = {"name": name, "card": card, "status": status,"payments":payments}
+    payments = {}
+    shopper = {"name": name, "card": card, "status": status, "payments": payments}
 
     list_of_shoppers.update({name: shopper})
     print(f"shopper was added: {shopper}")
@@ -386,36 +386,41 @@ print(" ")
 print("List of shoppers:")
 
 for item in list_of_shoppers.items():
-    print(item,end="\n")
+    print(item, end="\n")
     print(" ")
 
-
 running = True
-shopping_list={"Apple":25,
-               "Android":70,
-               "Nokia":2,
-               "Huaway":30}
-list =[]
+shopping_list = {"Apple": 25,
+                 "Android": 70,
+                 "Nokia": 2,
+                 "Huaway": 30}
+list = {}
 total_price = 0
 
 while running:
     print("------Shop-----")
     for key, value in shopping_list.items():
-        print(f"{key:5}: ${value:.2f}",end="\n")
+        print(f"{key:5}: ${value:.2f}", end="\n")
     print("----------")
 
-    electrotechnics=input("Enter your electrotechnics: ").capitalize()
-    if electrotechnics == "q":
+    electrotechnics = input("Enter your electrotechnics: ").capitalize()
+    if electrotechnics == "Q":
         running = False
         break
-    elif electrotechnics  in shopping_list.keys():
+    elif electrotechnics in shopping_list.keys():
 
-        print(f"The shopper is {shopping_list[electrotechnics]}")
-        list.append(shopping_list[electrotechnics])
+        print(f"Added on shopping list {electrotechnics:3}  ${shopping_list[electrotechnics]:.2f}")
+        list.update({electrotechnics: shopping_list[electrotechnics]})
     else:
         print("NONE existing in list")
         continue
 
+print("-----shopping list-----", end="\n")
+for key, value in shopping_list.items():
+    print(f"{key:5}: ${value:.2f}", end="\n")
 
-
+print("LOADING", end="")
+for x in range(5):
+    print(".", end="")
+    time.sleep(1)
 
