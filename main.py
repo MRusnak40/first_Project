@@ -346,8 +346,9 @@ while found_mines < 4:
             mines -= 1
             found_mines += 1
         print("DIDNT STEP ON ONE")
+####################################################
+# shops and shopper
 
-"""
 list_of_shoppers = {}
 
 while len(list_of_shoppers) < 1:
@@ -423,4 +424,13 @@ print("LOADING", end="")
 for x in range(5):
     print(".", end="")
     time.sleep(1)
+"""
 
+
+def set_name(name, second_name):
+    person = {"name": name, " second name": second_name}
+    return person
+
+
+list_of_people = {set_name(input("Enter your name: "), input("Enter your second name: "))}
+print(list_of_people)
