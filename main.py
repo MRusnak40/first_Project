@@ -428,9 +428,27 @@ for x in range(5):
 
 
 def set_name(name, second_name):
-    person = {"name": name, " second name": second_name}
-    return person
+    if any(char.isdigit() for char in name) is False and any(char.isdigit() for char in second_name) is False:
+        person = {"name": name, "second name": second_name}
+        return person
+    else:
+        print(f"Name contains digits: {name}", end=" ")
+        print(f"or second name contains digits: {second_name}")
+        return None
 
 
-list_of_people = {set_name(input("Enter your name: "), input("Enter your second name: "))}
-print(list_of_people)
+list_of_people = []
+
+while len(list_of_people) < 1:
+
+    list_of_people.append(set_name(name=input("Enter your name: ").capitalize(),
+                                   second_name=input("Enter your second name: ").capitalize()))
+
+    for person in list_of_people:
+        if person == None:
+            list_of_people.remove(person)
+            print("Try again")
+    print(f"List of people {list_of_people}")
+
+print(
+    f"Thank you for login {list_of_people[len(list_of_people) - 1]["name"]}  {list_of_people[len(list_of_people) - 1]["second name"]} ")
