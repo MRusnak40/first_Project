@@ -2,6 +2,7 @@ import random
 import time
 from importlib.util import source_hash
 from itertools import filterfalse
+
 from operator import index
 from xmlrpc.client import boolean
 
@@ -450,5 +451,35 @@ while len(list_of_people) < 1:
             print("Try again")
     print(f"List of people {list_of_people}")
 
-print(
-    f"Thank you for login {list_of_people[len(list_of_people) - 1]["name"]}  {list_of_people[len(list_of_people) - 1]["second name"]} ")
+print(f"Thank you for login {list_of_people[len(list_of_people) - 1]["name"]}  {list_of_people[len(list_of_people) - 1]["second name"]} ")
+
+def countiung(ints):
+    print(f"zadal jsi cislo {ints} dostupne funkce", end="\n")
+    print("Scitat",end="\n")
+    print("Odcitani",end="\n")
+    print("Nasobeni",end="\n")
+    print("Deleni",end="\n")
+
+
+def alhpa(strs):
+    print(f"Zadal jsi text {strs}", end="\n")
+    print("Muzes s tim delat", end="\n")
+    print("Spojit do jednoho", end="\n")
+    print("Vypsat", end="\n")
+
+
+#chyba ze nepocitam ze arg je nejaka mnozina cisel
+def income(*args):
+    for incomes in args:
+
+        if type(incomes) is  str or type(incomes) is int:
+            if incomes.isdigit():
+                print("CISLO")
+                countiung(incomes)
+
+            elif incomes.isalpha():
+                print("TEXT")
+                alhpa(incomes)
+
+
+income(input("Enter your income: "),input("Enter your income: "))
