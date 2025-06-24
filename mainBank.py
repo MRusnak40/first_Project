@@ -1,69 +1,126 @@
-#show balance
+# show balance
 import time
+import Casino
 
 
-def showBalance():
-    pass
-#vklad
-def deposit():
-    pass
+
+
+def showBalance(balance):
+    print("********************")
+    print(f"balance ${balance:.2f}")
+    print("********************")
+
+
+# vklad
+def deposit(balance, amount):
+    balance += amount
+    print("********************")
+    print(f"you deposited ${amount:.2f}")
+    print("********************")
+
+    return balance
+
 
 # vybrat
-def withdraw():
-    pass
-def convert():
-    pass
+def withdraw(balance, amount):
+    print("********************")
+    if amount > 0:
 
-balance = 0
-is_running=True
+        if balance >= amount:
+            balance -= amount
 
-while is_running:
-    print("-------Banking program-------")
-    print("STARTING",end=" ")
+            return balance
+        else:
+            print("Invalid amount (REQUEST CANCELED)")
+            print("********************")
+            return balance
 
-    for x in range(6):
-        time.sleep(1)
-        print(".",end="")
+    else:
+        print("Invalid amount (REQUEST CANCELED)")
+        print("********************")
+        return balance
 
 
+def convert(balance, amount):
+    print("********************")
 
-    print(" ")
-    print(" ")
-    print("1-FUNCION-")
-    print("-------------")
-    print("2-Show balance-")
-    print("3-Deposit-")
-    print("4-Withdraw-")
-    print("5-Convert-")
-    print("6-Exit-")
-    print(" ")
+    name = str(input("Enter name the recipient:"))
+    if amount > 0:
+
+        if balance >= amount:
+            balance -= amount
+
+            print(f"you sent ${amount:.2f} to {name}")
+            print("********************")
+            return balance
+        else:
+            print("Invalid amount (REQUEST CANCELED)")
+            print("********************")
+            return balance
+
+    else:
+        print("Invalid amount (REQUEST CANCELED)")
+        print("********************")
+        return balance
+
+
+def main():
+    balance = 0
+    is_running = True
 
     while is_running:
-        match input("Enter what you want: "):
+        print("-------Banking program-------")
+        print("STARTING", end=" ")
 
-            case "1":
-                showBalance()
-            case "2":
-                deposit()
-            case "3":
-                withdraw()
-            case "4":
-                withdraw()
-            case "5":
-                convert()
-            case "6":
-                print(" ")
-                print("Thank you for using this program")
-                print("Closing program",end="")
-                for x in range(6):
-                    time.sleep(1)
-                    print(".",end="")
+        for x in range(6):
+            time.sleep(1)
+            print(".", end="")
 
-                is_running=False
+        print(" ")
+        print(" ")
+        print("1-FUNCION-")
+        print("-------------")
+        print("2-Show balance-")
+        print("3-Deposit-")
+        print("4-Withdraw-")
+        print("5-Convert-")
+        print("6-Casino")
+        print("7-Exit-")
+        print(" ")
 
-            case _:
-                print(" ")
-                print("Invalid input")
-                print("choose 1-6")
-                print(" ")
-                continue
+        while is_running:
+            match input("Enter what you want: "):
+
+                case "1":
+                    showBalance(balance)
+                case "2":
+                    balance = deposit(balance,float(input("Enter amount to deposit: ")))
+                case "3":
+
+                    balance = withdraw(balance,float(input("Enter amount to deposit: ")))
+                case "4":
+                    balance = withdraw(balance,float(input("Enter amount to deposit: ")))
+                case "5":
+                    balance = convert(balance,float(input("Enter amount to deposit: ")))
+                case "6":
+                    Casino.main()
+                case "7":
+                    print(" ")
+                    print("Thank you for using this program")
+                    print("Closing program", end="")
+                    for x in range(6):
+                        time.sleep(1)
+                        print(".", end="")
+
+                    is_running = False
+
+                case _:
+                    print(" ")
+                    print("Invalid input")
+                    print("choose 1-6")
+                    print(" ")
+                    continue
+
+
+if __name__ == "__main__":
+    main()
