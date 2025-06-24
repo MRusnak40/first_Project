@@ -425,7 +425,7 @@ print("LOADING", end="")
 for x in range(5):
     print(".", end="")
     time.sleep(1)
-"""
+##################################################################################
 
 
 def set_name(name, second_name):
@@ -483,3 +483,5 @@ def income(*args):
 
 
 income(input("Enter your income: "),input("Enter your income: "))
+"""
+
