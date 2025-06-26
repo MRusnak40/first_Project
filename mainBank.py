@@ -103,7 +103,7 @@ def main():
                 case "5":
                     balance = convert(balance,float(input("Enter amount to deposit: ")))
                 case "6":
-                    Casino.main()
+                    Casino.casino()
                 case "7":
                     print(" ")
                     print("Thank you for using this program")
