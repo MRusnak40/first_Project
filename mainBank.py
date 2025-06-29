@@ -3,8 +3,6 @@ import time
 import Casino
 
 
-
-
 def showBalance(balance):
     print("********************")
     print(f"balance ${balance:.2f}")
@@ -94,16 +92,21 @@ def main():
                 case "1":
                     showBalance(balance)
                 case "2":
-                    balance = deposit(balance,float(input("Enter amount to deposit: ")))
+                    balance = deposit(balance, float(input("Enter amount to deposit: ")))
                 case "3":
 
-                    balance = withdraw(balance,float(input("Enter amount to deposit: ")))
+                    balance = withdraw(balance, float(input("Enter amount to deposit: ")))
                 case "4":
-                    balance = withdraw(balance,float(input("Enter amount to deposit: ")))
+                    balance = withdraw(balance, float(input("Enter amount to deposit: ")))
                 case "5":
-                    balance = convert(balance,float(input("Enter amount to deposit: ")))
+                    balance = convert(balance, float(input("Enter amount to deposit: ")))
                 case "6":
-                    Casino.casino()
+
+
+
+
+
+
                 case "7":
                     print(" ")
                     print("Thank you for using this program")
