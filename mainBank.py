@@ -101,7 +101,15 @@ def main():
                 case "5":
                     balance = convert(balance, float(input("Enter amount to deposit: ")))
                 case "6":
+                    #create income to game
+                    #control how much he can deposit
 
+                    budget = input("Enter amount to deposit: ")
+
+
+
+                    budget = int(budget)
+                    Casino.casino(budget)
 
 
 

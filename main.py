@@ -483,8 +483,42 @@ def income(*args):
 
 
 income(input("Enter your income: "),input("Enter your income: "))
+#######################################
+#encription
+
+import string
+import random
+
+chars = string.punctuation + string.digits + string.ascii_letters + " "
+chars = list(chars)
+
+key = chars.copy()
+
+random.shuffle(key)
+
+print(f"chars: {chars}")
+print(f"key: {key}")
+
+# ENCRYPT
+plain_text = input("Enter your plain text:")
+cipher_text = ""
+
+for char in plain_text:
+    index = chars.index(char)
+    cipher_text += key[index]
+
+print(f"cipher text:{cipher_text}")
+print(f"plain text:{plain_text}")
+print(" ")
+
+cipher_text = input("Enter your cipher text:")
+plain_text = ""
+
+for char in cipher_text:
+    index = key.index(char)
+    plain_text += chars[index]
+
+print(f"cipher text:{cipher_text}")
+print(f"plain text:{plain_text}")
 """
-
-import mainBank
-
 
