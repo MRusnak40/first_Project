@@ -522,3 +522,95 @@ print(f"cipher text:{cipher_text}")
 print(f"plain text:{plain_text}")
 """
 
+import random
+
+words = ["nigga", "rizz", "skibidi", "ohio"]
+
+# dictionary of key:()
+hangman_art = {0: ("   ----",
+                   "    ",
+                   "    ",
+                   "    ",
+                   "   ----",
+                   "    "),
+               1: ("   ----",
+                   "    O  ",
+                   "    ",
+                   "    ",
+                   "   ----",
+                   "    "),
+               2: ("   ----",
+                   "    O  ",
+                   "    |  ",
+                   "    ",
+                   "   ----",
+                   "    "),
+               3: ("   ----",
+                   "    O  ",
+                   "   /|\\",
+                   "    ",
+                   "   ----",
+                   "    "),
+               4: ("   ----",
+                   "    O  ",
+                   "   /|\\",
+                   "   /  ",
+                   "   ----",
+                   "    ",),
+               5: ("   ----",
+                   "    O  ",
+                   "   /|\\",
+                   "   / \\",
+                   "   ----",
+                   "    ",),
+               6: ("   ----",
+                   "    O  ",
+                   "   /|\\",
+                   "   /'\\",
+                   "   ----",
+                   "GAY OVER"), }
+
+
+def display_man(wrong_guesses):
+    for line in hangman_art[wrong_guesses]:
+        print(line)
+
+
+def display_hint(hint):
+    print(" ".join(hint))
+
+
+def display_answer(answer):
+    print(" ".join(answer))
+
+
+def main():
+    answer = random.choice(words)
+    hint = ["_"] * len(answer)
+    wrong_guesses = 0
+    guessed_letters = set()
+    isRunning = True
+
+    while isRunning:
+        if wrong_guesses >= len(hangman_art):
+            break
+
+
+        display_man(wrong_guesses)
+        display_hint(hint)
+        print(" ")
+        guessed_letters = input("Guess letter:").lower()
+        print(" ")
+
+        if guessed_letters in answer:
+            for i in range(len(answer)):
+                if answer[i] == guessed_letters:
+                    hint[i] = guessed_letters
+
+        else:
+            wrong_guesses += 1
+
+
+
+if __name__ == "__main__":
+    main()
