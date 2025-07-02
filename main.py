@@ -577,6 +577,7 @@ def display_man(wrong_guesses):
 
 
 def display_hint(hint):
+    print("HINT->",end=' ')
     print(" ".join(hint))
 
 
@@ -590,14 +591,12 @@ def main():
     wrong_guesses = 0
     guessed_letters = set()
     isRunning = True
-
+    display_man(wrong_guesses)
     while isRunning:
-        if wrong_guesses >= len(hangman_art):
-            break
 
-
-        display_man(wrong_guesses)
         display_hint(hint)
+        if wrong_guesses == len(hangman_art) - 1:
+            break
         print(" ")
         guessed_letters = input("Guess letter:").lower()
         print(" ")
@@ -610,7 +609,17 @@ def main():
         else:
             wrong_guesses += 1
 
+        display_man(wrong_guesses)
+
+        founded = False
+        for x in hint:
+
+            if x =="_":
+                founded = True
 
 
+        if not founded:
+            print("You won ")
+            break
 if __name__ == "__main__":
     main()
