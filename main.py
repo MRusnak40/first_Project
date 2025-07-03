@@ -521,10 +521,10 @@ for char in cipher_text:
 print(f"cipher text:{cipher_text}")
 print(f"plain text:{plain_text}")
 """
-
+from words import wordslist
 import random
 
-words = ["nigga", "rizz", "skibidi", "ohio"]
+words = ("nigga", "rizz", "skibidi", "ohio")+wordslist
 
 # dictionary of key:()
 hangman_art = {0: ("   ----",
@@ -590,28 +590,34 @@ def main():
         answer = random.choice(words)
         hint = ["_"] * len(answer)
         wrong_guesses = 0
-        guessed_letters = set()
+        guessed_letters_list = set(" ")
         isRunning = True
         display_man(wrong_guesses)
         while isRunning:
 
             display_hint(hint)
+            print(f"Guessed letters: {guessed_letters_list}")
             if wrong_guesses == len(hangman_art) - 1:
                 break
             print(" ")
             guessed_letters = input("Guess letter:").lower()
             print(" ")
 
+            if len(guessed_letters) == 1 and guessed_letters not in answer:
+                guessed_letters_list.add(guessed_letters)
+
+
             if guessed_letters in answer and len(guessed_letters) == 1:
+
                 for i in range(len(answer)):
                     if answer[i] == guessed_letters:
                         hint[i] = guessed_letters
 
-            elif guessed_letters==answer:
-                index=0
+            elif guessed_letters == answer:
+                index = 0
                 for x in guessed_letters:
                     hint[index] = x
-                    index+=1
+                    index += 1
 
             else:
                 print(" ")
