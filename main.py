@@ -520,7 +520,9 @@ for char in cipher_text:
 
 print(f"cipher text:{cipher_text}")
 print(f"plain text:{plain_text}")
-"""
+#######################################################
+#hangman
+
 from words import wordslist
 import random
 
@@ -661,3 +663,5 @@ if __name__ == "__main__":
     print("WELCOME TO HANGMAN")
     print(" ")
     main()
+"""
+
