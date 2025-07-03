@@ -577,7 +577,7 @@ def display_man(wrong_guesses):
 
 
 def display_hint(hint):
-    print("HINT->",end=' ')
+    print("HINT->", end=' ')
     print(" ".join(hint))
 
 
@@ -586,40 +586,72 @@ def display_answer(answer):
 
 
 def main():
-    answer = random.choice(words)
-    hint = ["_"] * len(answer)
-    wrong_guesses = 0
-    guessed_letters = set()
-    isRunning = True
-    display_man(wrong_guesses)
-    while isRunning:
-
-        display_hint(hint)
-        if wrong_guesses == len(hangman_art) - 1:
-            break
-        print(" ")
-        guessed_letters = input("Guess letter:").lower()
-        print(" ")
-
-        if guessed_letters in answer:
-            for i in range(len(answer)):
-                if answer[i] == guessed_letters:
-                    hint[i] = guessed_letters
-
-        else:
-            wrong_guesses += 1
-
+    while True:
+        answer = random.choice(words)
+        hint = ["_"] * len(answer)
+        wrong_guesses = 0
+        guessed_letters = set()
+        isRunning = True
         display_man(wrong_guesses)
+        while isRunning:
 
-        founded = False
-        for x in hint:
+            display_hint(hint)
+            if wrong_guesses == len(hangman_art) - 1:
+                break
+            print(" ")
+            guessed_letters = input("Guess letter:").lower()
+            print(" ")
 
-            if x =="_":
-                founded = True
+            if guessed_letters in answer and len(guessed_letters) == 1:
+                for i in range(len(answer)):
+                    if answer[i] == guessed_letters:
+                        hint[i] = guessed_letters
+
+            elif guessed_letters==answer:
+                index=0
+                for x in guessed_letters:
+                    hint[index] = x
+                    index+=1
+
+            else:
+                print(" ")
+
+                print("Wrong guesses!")
+                print(" ")
+                wrong_guesses += 1
+
+            display_man(wrong_guesses)
+
+            founded = False
+            for x in hint:
+
+                if x == "_":
+                    founded = True
+
+            if not founded:
+                display_hint(hint)
+                print(" ")
+                print("*****************")
+
+                print("You won ")
+                print("*****************")
+                break
+        print(" ")
+        print("CONTINUE?")
+        match input("Q to quit anything else continue:").lower():
+            case "q":
+                break
+            case _:
+                print("  ")
+
+                print("LETS GO!")
+                print("  ")
+                continue
 
 
-        if not founded:
-            print("You won ")
-            break
 if __name__ == "__main__":
+    print("-----HANGMAN-----")
+    print(" ")
+    print("WELCOME TO HANGMAN")
+    print(" ")
     main()
