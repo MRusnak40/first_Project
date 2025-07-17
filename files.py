@@ -10,6 +10,7 @@ if os.path.exists(file_path):
 else:
     print(f"File doesn't exist {file_path}")
 """
+"""
 import json
 import csv
 txt_data = "ngr"
@@ -17,11 +18,14 @@ txt_data = "ngr"
 #txt_path = "output.txt"
 txt_path = "output.csv"
 
-"""
+
 for x in range(50):
     with open(file=txt_path, mode="a") as file:
         file.write("\n" + txt_data)
         print(f"File written to {txt_path}")
+
+"""
+
 
 """
 list={
@@ -43,3 +47,20 @@ with open(file=txt_path, mode="w",newline="") as file:
         writer.writerow(row)
 
     print(f"File written to {txt_path}")
+"""
+import json
+import csv
+file_path="output.csv"
+try:
+    with open(file=file_path, mode="r") as file:
+        #content = file.read()
+        #content = json.load(file)
+        content = csv.reader(file)
+        for line in content:
+            print(line[1])
+
+except FileNotFoundError:
+    print(f"File doesn't exist {file_path}")
+
+except PermissionError:
+    print(f"File doesn't have permission {file_path}")
