@@ -1,3 +1,4 @@
+import csv
 import datetime
 import time
 from logging import raiseExceptions
@@ -8,6 +9,7 @@ import pygame
 def set_alarm_clock(alarm_clock):
     print(f"Alarm Clock set for {alarm_clock}")
     sound_file = "Scooter x Blasterjaxx x CERES - Heart Attack.mp3"
+    print(" ")
     is_rinning = True
 
     while is_rinning:
@@ -69,6 +71,7 @@ if __name__ == '__main__':
     while True:
         try:
             alarm_time = alarm_clock(input("HOURS:"), input("MINUTES:"), input("SECONDS:"))
+            print(" ")
             if alarm_time is not None:
                 break
 
@@ -77,5 +80,13 @@ if __name__ == '__main__':
             print("TRY AGAIN")
             print("  ")
             continue
+
+    try:
+        with open(file="files/historie_alarm", mode="a") as file:
+            file.write(f"Alarm set on {alarm_time}\n")
+    except FileNotFoundError:
+        print("file not found")
+    except Exception:
+        print("ERROR")
 
     set_alarm_clock(alarm_time)

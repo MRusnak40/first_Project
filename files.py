@@ -50,7 +50,7 @@ with open(file=txt_path, mode="w",newline="") as file:
 """
 import json
 import csv
-file_path="output.csv"
+file_path= "files/output.csv"
 try:
     with open(file=file_path, mode="r") as file:
         #content = file.read()
